@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Weather({ temp, condition }) {
+export default function Weather({ temp, condition, name }) {
   return (
     <LinearGradient
       colors={weatherOptions[condition].gradient}
@@ -16,10 +16,11 @@ export default function Weather({ temp, condition }) {
           name={weatherOptions[condition].iconName}
           color="white"
         />
+        <Text style={styles.temp}>{condition}</Text>
         <Text style={styles.temp}>{temp}°</Text>
       </View>
       <View style={styles.halfContainer}>
-        <Text style={styles.title}>{condition}</Text>
+        <Text style={styles.title}>{name}</Text>
       </View>
     </LinearGradient>
   );
